@@ -12,8 +12,11 @@ public class AssignOrders {
 
                 CourierCar courierCar = courierCars.get( i ); //samochód kurierski
                 Order order = orderQueue.front(); //pobieram pierwsze zlecenie z góry
+                Path path = new Path();
 
                 if ( order == null ) break;
+
+
 
                 //Jeżeli zlecenie nie jest w mieście gdzie startuje samochód
                 //Zapisuje ścieżke gdzie ma pojechać
@@ -24,22 +27,24 @@ public class AssignOrders {
                     Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( courierCar.getLastCity() ) ).returnPath( order.getSource() );
 
                     //Ścieżka B -> C
-                    Data<City> pathToCityC = dijkstryData.get( map.getCityIndex( order.getSource() )).returnPath( order.getDestination() );
+                    Data<City> pathToCityC = dijkstryData.get( map.getCityIndex( order.getSource() )).returnPath(order.getDestination());
 
 
-                    //courierCar.addOrderToQueue( order, map.getCity( order.getIndexA() ) );
-                    courierCar.addPath( pathToCityB );
-                    courierCar.addPath( pathToCityC );
-                    courierCar.addOrder( orderQueue.pop() );
+                    path.addPath( pathToCityB );
 
-                    orderQueue = OrderQueue.getOrdersByPath( orderQueue, pathToCityB, courierCar, map );
-                    orderQueue = OrderQueue.getOrdersByPath( orderQueue, pathToCityC, courierCar, map );
+                    path.addPath( pathToCityC );
 
                 } else {
-                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getSource() ) ).returnPath( order.getDestination() );
-                    courierCar.addPath( pathToCityB );
-                    orderQueue = OrderQueue.getOrdersByPath( orderQueue, pathToCityB, courierCar, map );
+
+                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getSource() ) ).returnPath(order.getDestination());
+
+                    path.addPath( pathToCityB );
+
                 }
+
+                //path.reverse();
+                orderQueue = OrderQueue.getOrdersByPath( orderQueue.pop(), orderQueue, path, courierCar.getMaxOrders() );
+                courierCar.getPath().addPath( path );
             }
         }
 

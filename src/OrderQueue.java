@@ -57,30 +57,29 @@ public class OrderQueue {
         
     }
 
-    public static OrderQueue getOrdersByPath( OrderQueue orderQueue, Data<City> pathToCity, CourierCar courierCar, Map map ) {
+    public static OrderQueue getOrdersByPath( Order order, OrderQueue orderQueue, Path path, int maxOrders ) {
 
         OrderQueue tmp = new OrderQueue();
-        int ordersAdded = 0;
+        int ordersAdded = 1;
+
+        path.addOrder( order );
 
         while ( !orderQueue.empty() ) {
 
-            Order order = orderQueue.pop();
+            Order orderTmp = orderQueue.pop();
 
             //Sprawdzam czy mogę po drodze zabrać przesyłkę i ją dostarczyć gdzieś
-            if( ordersAdded < (courierCar.getMaxOrders()-1) && pathToCity.get( order.getSource() ) != null && pathToCity.get( order.getDestination() ) != null )
+            if( ordersAdded < maxOrders && path.getCity( orderTmp.getSource() ) != null && path.getCity( orderTmp.getDestination() ) != null )
             {
                 ordersAdded++;
-                courierCar.addOrder( order );
+                path.addOrder( orderTmp );
             }
             else
             {
-                tmp.push( order );
+                tmp.push( orderTmp );
             }
         }
 
-        courierCar.addPath( pathToCity );
-
         return tmp;
     }
-
 }

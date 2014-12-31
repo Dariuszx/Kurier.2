@@ -19,7 +19,7 @@ public class CourierCar {
     }
 
     public City getLastCity() {
-        return path.getPath_list().get( path.getPath_list().size() ).getCity();
+        return path.getPath_list().get( path.getPath_list().size() - 1 ).getCity();
     }
 
     public int getMaxOrders() {
@@ -30,4 +30,11 @@ public class CourierCar {
         this.path.addPath( path );
     }
 
+    public Path getPath() {
+        return path;
+    }
+
+    public int getId() {
+        return id;
+    }
 }

@@ -11,6 +11,7 @@ public class Path {
         PathElement source = null;
         PathElement destination = null;
 
+
         for( int i=0; i < path_list.size(); i++ ) {
 
             PathElement tmp = path_list.get( i );
@@ -20,12 +21,12 @@ public class Path {
             } else if ( tmp.getCity().equals( order.getDestination() ) ) {
                 destination = tmp;
             }
-
         }
 
         if( source != null && destination != null ) {
             source.add_to_get_list( order );
-            source.add_to_put_list( order );
+            destination.add_to_put_list( order );
+
             return true;
         }
 
@@ -40,12 +41,45 @@ public class Path {
         }
     }
 
+    public void addPath( Path path ) {
+
+        for( int i=0; i < path.getPath_list().size(); i++ ) {
+            path_list.add( path.getPath_list().get(i) );
+        }
+
+    }
+
     public void addPath( City city ) {
         path_list.add( new PathElement( city ) );
     }
 
     public Data<PathElement> getPath_list() {
         return path_list;
+    }
+
+    public City getCity( City city ) {
+
+        for( int i=0; i < path_list.size(); i++ ) {
+
+            if( path_list.get(i).getCity().equals( city ) ) return city;
+        }
+
+        return null;
+    }
+
+    public void reverse() {
+
+        for ( int i=0; i < path_list.size(); i++ ) {
+
+            PathElement tmp = path_list.get( path_list.size() - 1 - i );
+
+            path_list.set( path_list.size() - 1 - i, path_list.get(i) );
+
+            path_list.set( i, tmp );
+
+        }
+
+        WritingOnScreen.wypiszSciezke( this );
     }
 
 }
