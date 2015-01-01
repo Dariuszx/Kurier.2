@@ -11,8 +11,10 @@ public class Path {
         PathElement source = null;
         PathElement destination = null;
 
+        int i = path_list.size();
 
-        for( int i=0; i < path_list.size(); i++ ) {
+
+        while( i-- != 0 ) {
 
             PathElement tmp = path_list.get( i );
 
@@ -21,6 +23,8 @@ public class Path {
             } else if ( tmp.getCity().equals( order.getDestination() ) ) {
                 destination = tmp;
             }
+
+            if( tmp.getCity().equals( Static.mainCity ) ) break;
         }
 
         if( source != null && destination != null ) {
@@ -44,6 +48,7 @@ public class Path {
     public void addPath( Path path ) {
 
         for( int i=0; i < path.getPath_list().size(); i++ ) {
+            //if( i == 0 && path_list.size() != 0 && path_list.get( path_list.size() - 1).equals( path.getPath_list().get(i) ) ) continue;
             path_list.add( path.getPath_list().get(i) );
         }
 

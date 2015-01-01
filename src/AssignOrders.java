@@ -24,21 +24,23 @@ public class AssignOrders {
                 if( !order.getSource().equals( courierCar.getLastCity() ) ) {
 
                     //Ścieżka z A -> B
-                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( courierCar.getLastCity() ) ).returnPath( order.getSource() );
+                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getSource() ) ).returnPath( courierCar.getLastCity() );
 
                     //Ścieżka B -> C
-                    Data<City> pathToCityC = dijkstryData.get( map.getCityIndex( order.getSource() )).returnPath(order.getDestination());
-
+                    Data<City> pathToCityC = dijkstryData.get( map.getCityIndex( order.getDestination() )).returnPath( order.getSource() );
 
                     path.addPath( pathToCityB );
 
                     path.addPath( pathToCityC );
 
+                    //WritingOnScreen.wypiszSciezke( path );
+
                 } else {
 
-                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getSource() ) ).returnPath(order.getDestination());
+                    Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getDestination() ) ).returnPath( order.getSource() );
 
                     path.addPath( pathToCityB );
+                    //WritingOnScreen.wypiszSciezke( path );
 
                 }
 

@@ -20,11 +20,17 @@ public class Main {
         try {
             new DataLoading(args).loadData( test, courierCars, orderQueue, dijkstryData );
 
+            Static.mainCity = test.getCity(0);
+
             AssignOrders.assign( dijkstryData, courierCars, test, orderQueue );
 
             //WritingOnScreen.wypiszKolejke( orderQueue );
             WritingOnScreen.wypiszSamochody( courierCars );
-            WritingOnScreen.wypiszSciezke( courierCars );
+            //WritingOnScreen.wypiszSciezke( courierCars );
+
+           // Path path = new Path();
+            //path.addPath( dijkstryData.get(0).returnPath( test.getCity(8) ) );
+            //WritingOnScreen.wypiszSciezke( path );
 
 
         } catch ( FileFormatException e) {

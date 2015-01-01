@@ -62,6 +62,8 @@ public class OrderQueue {
         OrderQueue tmp = new OrderQueue();
         int ordersAdded = 1;
 
+        WritingOnScreen.wypiszSciezke( path );
+
         path.addOrder( order );
 
         while ( !orderQueue.empty() ) {
