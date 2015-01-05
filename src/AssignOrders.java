@@ -51,4 +51,38 @@ public class AssignOrders {
         }
 
     }
+
+    public static void assignTime( Data<CourierCar> courierCars ) {
+
+        for ( int i=0; i < courierCars.size(); i++ ) {
+
+            CourierCar courierCar = courierCars.get(i);
+
+            Data<PathElement> path = courierCar.getPath().getPath_list();
+
+
+            if( path.size() == 0 ) return;
+
+            PathElement prev = path.get(0);
+            PathElement curr;
+
+            int time = 0;
+
+            for( int j=1; j < path.size(); j++ ) {
+
+                curr = path.get(j);
+
+                Neighbour tmp = curr.getCity().getNeighbour( prev.getCity() );
+
+                if( tmp != null ) {
+                    time += tmp.getWeight();
+                }
+
+                curr.setTime( time );
+                prev = curr;
+            }
+
+        }
+
+    }
 }

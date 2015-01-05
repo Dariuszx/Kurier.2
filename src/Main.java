@@ -24,6 +24,8 @@ public class Main {
 
             AssignOrders.assign( dijkstryData, courierCars, test, orderQueue );
 
+            AssignOrders.assignTime( courierCars );
+
             //WritingOnScreen.wypiszKolejke( orderQueue );
             WritingOnScreen.wypiszSamochody( courierCars );
             //WritingOnScreen.wypiszSciezke( courierCars );

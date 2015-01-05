@@ -1,6 +1,7 @@
 public class PathElement {
 
     private City city;
+    private int time;
     private Data<Order> get_list;
     private Data<Order> put_list;
 
@@ -31,4 +32,11 @@ public class PathElement {
         this.put_list.add( order );
     }
 
+    public void setTime(int time) {
+        this.time = time;
+    }
+
+    public int getTime() {
+        return time;
+    }
 }

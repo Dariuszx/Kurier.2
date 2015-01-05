@@ -34,6 +34,18 @@ public class City {
         return neighbourList;
     }
 
+    public Neighbour getNeighbour( City city ) {
+
+        Neighbour tmp = null;
+        for( int i=0; i < neighbourList.size(); i++ ) {
+            if( neighbourList.get(i).getCity().equals( city ) ) {
+                tmp = neighbourList.get(i);
+            }
+        }
+
+        return tmp;
+    }
+
     @Override
     public int hashCode() {
 

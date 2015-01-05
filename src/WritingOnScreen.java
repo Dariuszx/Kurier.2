@@ -23,7 +23,7 @@ public class WritingOnScreen {
 
                 PathElement pathElement = car.getPath().getPath_list().get(j);
 
-                System.out.println( "\t\t" + pathElement.getCity().getName() );
+                System.out.println( "\t\t" + pathElement.getTime() + " " + pathElement.getCity().getName() );
 
                 for( int k=0; k < pathElement.getGet_list().size(); k++ ) {
                     System.out.println( "\t\t\t ++ " + pathElement.getGet_list().get(k).getName() + " +" + pathElement.getGet_list().get(k).getSource().getName() + " -" + pathElement.getGet_list().get(k).getDestination().getName() );
