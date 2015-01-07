@@ -1,4 +1,4 @@
-package visualisation;
+package visualization;
 
 
 import logic.*;

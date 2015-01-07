@@ -1,7 +1,7 @@
 import exceptions.FileFormatException;
 import logic.*;
-import visualisation.AnimationGraph;
-import visualisation.WritingOnScreen;
+import visualization.AnimationGraph;
+import visualization.WritingOnScreen;
 
 public class Main {
 
@@ -29,13 +29,13 @@ public class Main {
 
             AssignOrders.assignTime(courierCars);
 
-            //visualisation.WritingOnScreen.wypiszKolejke( orderQueue );
-            //WritingOnScreen.wypiszSamochody(courierCars);
-            //visualisation.WritingOnScreen.wypiszSciezke( courierCars );
+            //visualization.WritingOnScreen.wypiszKolejke( orderQueue );
+            WritingOnScreen.wypiszSamochody(courierCars);
+            //visualization.WritingOnScreen.wypiszSciezke( courierCars );
 
            // logic.Path path = new logic.Path();
             //path.addPath( dijkstryData.get(0).returnPath( test.getCity(8) ) );
-            //visualisation.WritingOnScreen.wypiszSciezke( path );
+            //visualization.WritingOnScreen.wypiszSciezke( path );
 
             AnimationGraph animation = new AnimationGraph( test, courierCars );
             animation.run();

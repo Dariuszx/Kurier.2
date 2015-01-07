@@ -1,12 +1,8 @@
-package visualisation;
+package visualization;
 
 import edu.uci.ics.jung.graph.Graph;
 import edu.uci.ics.jung.graph.SparseMultigraph;
-import edu.uci.ics.jung.visualization.picking.PickedInfo;
 import logic.*;
-import org.apache.commons.collections15.Transformer;
-
-import java.awt.*;
 
 
 class Edge {

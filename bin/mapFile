@@ -1,22 +1,23 @@
 # miasta
-0 Warszawa
-1 Białystok
-2 Łomża
-3 Ełk
-4 Suwałki
-5 Olsztyn
-6 Elbląg
-7 Gdańsk
-8 Tczew
-9 Bydgoszcz
-10 Poznań
-11 Łódź
-12 Płock
+0 [0] Warszawa
+1 [1] Białystok
+2 [2] Łomża
+3 [3] Ełk
+4 [4] Suwałki
+5 [5] Olsztyn
+6 [6] Elbląg
+7 [7] Gdańsk
+8 [8] Tczew
+9 [9] Bydgoszcz
+10 [10] Poznań
+11 [11] Łódź
+12 [12] Płock
 
 # połączenia
 0 1 50
 0 5 100
 0 11 15
+0 2 90
 11 12 10
 10 12 80
 10 11 70

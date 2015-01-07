@@ -1,6 +1,5 @@
 package logic;
 
-import visualisation.WritingOnScreen;
 
 public class Path {
 
@@ -52,7 +51,6 @@ public class Path {
     public void addPath( Path path ) {
 
         for( int i=0; i < path.getPath_list().size(); i++ ) {
-            //if( i == 0 && path_list.size() != 0 && path_list.get( path_list.size() - 1).equals( path.getPath_list().get(i) ) ) continue;
             path_list.add( path.getPath_list().get(i) );
         }
 
@@ -74,21 +72,6 @@ public class Path {
         }
 
         return null;
-    }
-
-    public void reverse() {
-
-        for ( int i=0; i < path_list.size(); i++ ) {
-
-            PathElement tmp = path_list.get( path_list.size() - 1 - i );
-
-            path_list.set( path_list.size() - 1 - i, path_list.get(i) );
-
-            path_list.set( i, tmp );
-
-        }
-
-        //WritingOnScreen.wypiszSciezke(this);
     }
 
 }

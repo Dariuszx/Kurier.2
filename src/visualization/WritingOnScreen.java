@@ -1,4 +1,4 @@
-package visualisation;
+package visualization;
 /*
 
 for ( int i=0; i < data.size(); i++ ) {
@@ -19,20 +19,25 @@ public class WritingOnScreen {
 
             CourierCar car = data.get(i);
 
-            System.out.println( "ID=" + car.getId() );
+            System.out.println( "CAR ID=" + car.getId() );
 
             for( int j=0; j < car.getPath().getPath_list().size(); j++ ) {
 
                 PathElement pathElement = car.getPath().getPath_list().get(j);
 
+                if( j != car.getPath().getPath_list().size()-1 ) {
+
+                    if( pathElement.getCity().equals( car.getPath().getPath_list().get(j+1).getCity() ) && pathElement.getGet_list().size() == 0 && pathElement.getPut_list().size() == 0 ) continue;
+                }
+
                 System.out.println( "\t\t" + pathElement.getTime() + " " + pathElement.getCity().getName() );
 
                 for( int k=0; k < pathElement.getGet_list().size(); k++ ) {
-                    System.out.println( "\t\t\t ++ " + pathElement.getGet_list().get(k).getName() + " +" + pathElement.getGet_list().get(k).getSource().getName() + " -" + pathElement.getGet_list().get(k).getDestination().getName() );
+                    System.out.println( "\t\t\t\t ++ " + pathElement.getGet_list().get(k).getName() + " ( +" + pathElement.getGet_list().get(k).getSource().getName() + "  -" + pathElement.getGet_list().get(k).getDestination().getName() + " )");
                 }
 
                 for( int k=0; k < pathElement.getPut_list().size(); k++ ) {
-                    System.out.println( "\t\t\t -- " + pathElement.getPut_list().get(k).getName() );
+                    System.out.println( "\t\t\t\t -- " + pathElement.getPut_list().get(k).getName() );
                 }
             }
         }

@@ -1,7 +1,5 @@
 package logic;
 
-import visualisation.WritingOnScreen;
-
 public class OrderQueue {
 
     private Queue<Order> head;
@@ -64,8 +62,6 @@ public class OrderQueue {
 
         OrderQueue tmp = new OrderQueue();
         int ordersAdded = 1;
-
-        WritingOnScreen.wypiszSciezke(path);
 
         path.addOrder( order );
 

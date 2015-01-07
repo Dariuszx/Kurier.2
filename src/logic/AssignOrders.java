@@ -34,7 +34,6 @@ public class AssignOrders {
 
                     path.addPath( pathToCityC );
 
-                    //visualisation.WritingOnScreen.wypiszSciezke( path );
 
                 } else {
 
