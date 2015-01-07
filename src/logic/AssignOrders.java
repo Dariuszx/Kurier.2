@@ -1,3 +1,4 @@
+package logic;
 
 public class AssignOrders {
 
@@ -33,18 +34,16 @@ public class AssignOrders {
 
                     path.addPath( pathToCityC );
 
-                    //WritingOnScreen.wypiszSciezke( path );
+                    //visualisation.WritingOnScreen.wypiszSciezke( path );
 
                 } else {
 
                     Data<City> pathToCityB = dijkstryData.get( map.getCityIndex( order.getDestination() ) ).returnPath( order.getSource() );
 
                     path.addPath( pathToCityB );
-                    //WritingOnScreen.wypiszSciezke( path );
 
                 }
 
-                //path.reverse();
                 orderQueue = OrderQueue.getOrdersByPath( orderQueue.pop(), orderQueue, path, courierCar.getMaxOrders() );
                 courierCar.getPath().addPath( path );
             }

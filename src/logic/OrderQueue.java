@@ -1,3 +1,6 @@
+package logic;
+
+import visualisation.WritingOnScreen;
 
 public class OrderQueue {
 
@@ -62,7 +65,7 @@ public class OrderQueue {
         OrderQueue tmp = new OrderQueue();
         int ordersAdded = 1;
 
-        WritingOnScreen.wypiszSciezke( path );
+        WritingOnScreen.wypiszSciezke(path);
 
         path.addOrder( order );
 

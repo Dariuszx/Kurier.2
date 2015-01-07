@@ -1,3 +1,5 @@
+package logic;
+
 import exceptions.FileFormatException;
 
 import java.io.BufferedReader;
@@ -169,7 +171,7 @@ public class DataLoading {
                     throw new Exception( "Wrong number od max orders value" );
             }
         }
-        if( mapFileName.length() == 0 || ordersFileName.length() == 0 ) throw new Exception( "Map or orders file name not definied." );
+        if( mapFileName.length() == 0 || ordersFileName.length() == 0 ) throw new Exception( "logic.Map or orders file name not definied." );
 
     }
 

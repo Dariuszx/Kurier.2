@@ -1,3 +1,4 @@
+package logic;
 
 public class CourierCar {
 
@@ -36,5 +37,10 @@ public class CourierCar {
 
     public int getId() {
         return id;
+    }
+
+    @Override
+    public String toString() {
+        return "Car id=" + id;
     }
 }

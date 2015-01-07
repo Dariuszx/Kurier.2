@@ -1,4 +1,4 @@
-
+package logic;
 
 public interface Data<T> {
 

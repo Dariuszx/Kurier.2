@@ -1,3 +1,5 @@
+package logic;
+
 public class PathElement {
 
     private City city;

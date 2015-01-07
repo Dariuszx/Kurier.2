@@ -1,4 +1,7 @@
 import exceptions.FileFormatException;
+import logic.*;
+import visualisation.AnimationGraph;
+import visualisation.WritingOnScreen;
 
 public class Main {
 
@@ -24,15 +27,18 @@ public class Main {
 
             AssignOrders.assign( dijkstryData, courierCars, test, orderQueue );
 
-            AssignOrders.assignTime( courierCars );
+            AssignOrders.assignTime(courierCars);
 
-            //WritingOnScreen.wypiszKolejke( orderQueue );
-            WritingOnScreen.wypiszSamochody( courierCars );
-            //WritingOnScreen.wypiszSciezke( courierCars );
+            //visualisation.WritingOnScreen.wypiszKolejke( orderQueue );
+            //WritingOnScreen.wypiszSamochody(courierCars);
+            //visualisation.WritingOnScreen.wypiszSciezke( courierCars );
 
-           // Path path = new Path();
+           // logic.Path path = new logic.Path();
             //path.addPath( dijkstryData.get(0).returnPath( test.getCity(8) ) );
-            //WritingOnScreen.wypiszSciezke( path );
+            //visualisation.WritingOnScreen.wypiszSciezke( path );
+
+            AnimationGraph animation = new AnimationGraph( test, courierCars );
+            animation.run();
 
 
         } catch ( FileFormatException e) {

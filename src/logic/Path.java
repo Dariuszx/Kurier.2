@@ -1,3 +1,7 @@
+package logic;
+
+import visualisation.WritingOnScreen;
+
 public class Path {
 
     private Data<PathElement> path_list;
@@ -84,7 +88,7 @@ public class Path {
 
         }
 
-        WritingOnScreen.wypiszSciezke( this );
+        //WritingOnScreen.wypiszSciezke(this);
     }
 
 }

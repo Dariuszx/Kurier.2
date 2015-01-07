@@ -1,4 +1,4 @@
-
+package visualisation;
 /*
 
 for ( int i=0; i < data.size(); i++ ) {
@@ -7,6 +7,8 @@ for ( int i=0; i < data.size(); i++ ) {
 
  */
 
+
+import logic.*;
 
 public class WritingOnScreen {
 

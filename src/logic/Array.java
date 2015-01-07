@@ -1,3 +1,5 @@
+package logic;
+
 import java.util.ArrayList;
 
 public class Array<T> implements Data<T> {
